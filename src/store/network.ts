@@ -14,3 +14,17 @@ export function userBasic() {
     url: '/user/basic'
   });
 }
+export function scriptList(data:any,signal?:any) {
+  return request({
+    method: 'post',
+    url: '/script/page',
+    data
+  },signal);
+}
+export function scriptDetail(id:any,signal:any) {
+  return request({
+    method: 'get',
+    url: '/script/find-by-id',
+    params:{id}
+  },signal);
+}
