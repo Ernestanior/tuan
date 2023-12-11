@@ -1,10 +1,10 @@
 export default defineAppConfig({
   pages: [
+    'pages/food/index',
+    'pages/index/index',
     'pages/user/index',
     'pages/room/index',
     'pages/game/index',
-    'pages/index/index',
-    'pages/noteList/index',
     'pages/gender/index',
 
   ],
@@ -19,25 +19,25 @@ export default defineAppConfig({
         pagePath: 'pages/index/index',
         selectedIconPath: 'assets/tabbar/home-fill.png',
         iconPath: 'assets/tabbar/home.png',
-        text: '首页'
+        text: '首页2'
       },
       {
-        pagePath: 'pages/game/index',
+        pagePath: 'pages/food/index',
         selectedIconPath: 'assets/tabbar/menu-fill.png',
         iconPath: 'assets/tabbar/menu.png',
-        text: '组局'
+        text: '拼团2'
       },
       {
         pagePath: 'pages/room/index',
         selectedIconPath: 'assets/tabbar/shop-fill.png',
         iconPath: 'assets/tabbar/shop.png',
-        text: '房间'
+        text: '订单2'
       },
       {
         pagePath: 'pages/user/index',
         selectedIconPath: 'assets/tabbar/user-fill.png',
         iconPath: 'assets/tabbar/user.png',
-        text: '个人中心'
+        text: '个人中心2'
       }
     ]
   },

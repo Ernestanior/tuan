@@ -14,17 +14,17 @@ export function userBasic() {
     url: '/user/basic'
   });
 }
-export function scriptList(data:any,signal?:any) {
+export function goodList(data:any) {
   return request({
     method: 'post',
-    url: '/script/page',
+    url: '/good/page',
     data
-  },signal);
+  });
 }
-export function scriptDetail(id:any,signal:any) {
+export function goodDetail(id:any) {
   return request({
     method: 'get',
-    url: '/script/find-by-id',
+    url: '/good/find-by-id',
     params:{id}
-  },signal);
+  });
 }

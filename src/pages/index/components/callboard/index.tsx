@@ -3,10 +3,10 @@ import {View} from '@tarojs/components'
 import './index.less'
 import {NoticeBar} from "@nutui/nutui-react-taro";
 const Index=()=> {
-    const boardList = ['同城有123场等你来玩哟','《妖歌曼舞》10月30日 14:00 极限等1','《妖妖灵》12月19日 21:00 极限等2']
+    const boardList = ['xxx学校猪脚饭4=2','福州第一高中鱼香肉丝拼饭5=1','133个饭局等你来拼~']
     return (
             <View className='callboard-container'>
-                <View className='callboard-label'>同城组局</View>
+                <View className='callboard-label'>同城拼饭</View>
                 <NoticeBar
                     height={25}
                     className={'callboard'}

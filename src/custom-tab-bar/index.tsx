@@ -17,16 +17,16 @@ export default class Index extends Component {
                 text: '首页'
             },
             {
-                pagePath: '/pages/menu/index',
+                pagePath: '/pages/food/index',
                 selectedIconPath: '../assets/tabbar/menu-fill.png',
                 iconPath: '../assets/tabbar/menu.png',
-                text: '分类'
+                text: '拼团'
             },
             {
-                pagePath: '/pages/game/index',
+                pagePath: '/pages/room/index',
                 selectedIconPath: '../assets/tabbar/shop-fill.png',
                 iconPath: '../assets/tabbar/shop.png',
-                text: '购物车'
+                text: '订单'
             },
             {
                 pagePath: '/pages/user/index',

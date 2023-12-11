@@ -1,5 +1,5 @@
 import {ScrollView, View} from '@tarojs/components'
-import image from '../../../../assets/demo.jpg'
+import aaa from '../../../../assets/aaa.jpeg'
 import { Image } from '@nutui/nutui-react-taro'
 import './index.less'
 import Taro from "@tarojs/taro";
@@ -11,41 +11,41 @@ const Index=()=> {
     return (
         <View className='top-note'>
             <View className='top-note-title'>
-                <View className='top-note-label'>同城精选</View>
+                <View className='top-note-label'>新开特惠</View>
                 <View className='top-note-more'>全部 <Image src={right} width={10} height={10}/></View>
             </View>
             <ScrollView  className='top-note-container' enhanced={true} enableFlex={true} showScrollbar={false} scrollX={true}>
                 <View className='top-note-box' onClick={()=>goto('a')}>
-                    <img alt="" src={image} className={'top-note-image'}/>
-                    <div className={'top-note-text'}>雪乡连环事件真的太惨了</div>
+                    <img alt="" src={aaa} className={'top-note-image'}/>
+                    <div className={'top-note-text'}>KFC</div>
                 </View>
                 <View className='top-note-box' onClick={()=>goto('a')}>
-                    <img alt="" src={image} className={'top-note-image'}/>
-                    <div className={'top-note-text'}>科举</div>
+                    <img alt="" src={aaa} className={'top-note-image'}/>
+                    <div className={'top-note-text'}>KFC</div>
                 </View>
                 <View className='top-note-box' onClick={()=>goto('a')}>
-                    <img alt="" src={image} className={'top-note-image'}/>
-                    <div className={'top-note-text'}>洗劫伦敦所以然</div>
+                    <img alt="" src={aaa} className={'top-note-image'}/>
+                    <div className={'top-note-text'}>KFC</div>
                 </View>
                 <View className='top-note-box' onClick={()=>goto('a')}>
-                    <img alt="" src={image} className={'top-note-image'}/>
-                    <div className={'top-note-text'}>拆迁2：买房</div>
+                    <img alt="" src={aaa} className={'top-note-image'}/>
+                    <div className={'top-note-text'}>KFC</div>
                 </View>
                 <View className='top-note-box' onClick={()=>goto('a')}>
-                    <img alt="" src={image} className={'top-note-image'}/>
-                    <div className={'top-note-text'}>病娇男孩的精分</div>
+                    <img alt="" src={aaa} className={'top-note-image'}/>
+                    <div className={'top-note-text'}>KFC</div>
                 </View>
                 <View className='top-note-box' onClick={()=>goto('a')}>
-                    <img alt="" src={image} className={'top-note-image'}/>
-                    <div className={'top-note-text'}>病娇男孩的精分</div>
+                    <img alt="" src={aaa} className={'top-note-image'}/>
+                    <div className={'top-note-text'}>KFC</div>
                 </View>
                 <View className='top-note-box' onClick={()=>goto('a')}>
-                    <img alt="" src={image} className={'top-note-image'}/>
-                    <div className={'top-note-text'}>病娇男孩的精分</div>
+                    <img alt="" src={aaa} className={'top-note-image'}/>
+                    <div className={'top-note-text'}>KFC</div>
                 </View>
                 <View className='top-note-box' onClick={()=>goto('a')}>
-                    <img alt="" src={image} className={'top-note-image'}/>
-                    <div className={'top-note-text'}>病娇男孩的精分</div>
+                    <img alt="" src={aaa} className={'top-note-image'}/>
+                    <div className={'top-note-text'}>KFC</div>
                 </View>
             </ScrollView>
         </View>

@@ -10,7 +10,7 @@ export default function Index () {
 
     useDidShow(() => {
         const tabbar = Taro.getTabBar<CustomTabBar>(page)
-        tabbar?.setSelected(1)
+        tabbar?.setSelected(2)
     })
     const dateList = ['','','','','','','','','','','','','','']
     const date = new Date()

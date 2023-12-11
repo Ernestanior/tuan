@@ -4,8 +4,8 @@ import {getTokenSync, removeTokenSync,} from "./token";
 import {Toast} from "@nutui/nutui-react-taro";
 // export const image_url = 'http://43.134.172.92'
 // export const init_url = 'http://43.134.172.92'
-export const init_url = 'https://api.friendasg.com/'
-// export const init_url = 'http://10.10.20.45:10000'
+// export const init_url = 'https://api.friendasg.com/'
+export const init_url = 'http://10.10.20.4:10000'
 
 const request = (option: any,pass=false) => {
   return new Promise(async (resolve, reject) => {
