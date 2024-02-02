@@ -1,13 +1,9 @@
-import {useMemo, useState} from 'react'
-import Taro, { useDidShow } from '@tarojs/taro'
+import {useCallback, useState} from 'react'
+import Taro from '@tarojs/taro'
 import {View} from '@tarojs/components'
-import type CustomTabBar from '../../custom-tab-bar'
 import {userBasic, wxLogin} from "../../store/network";
-// import {saveToken} from "../../store/token";
-// import image1 from '@/assets/profile/ppp.jpg'
 import folder from '@/assets/profile/folder.png'
 import empty from '@/assets/profile/image.png'
-import message from '@/assets/profile/message.png'
 import order from '@/assets/profile/order.png'
 import right from '@/assets/profile/right.png'
 import crown from '@/assets/profile/crown.png'
@@ -16,16 +12,13 @@ import './index.less'
 import {Button} from "@nutui/nutui-react-taro";
 import {saveToken} from "../../store/token";
 import useStore from "../../store/store";
+import Tabbar from "../../common/tabbar";
+const statusBarHeight:any=Taro.getSystemInfoSync().statusBarHeight
 
 const User= ()=> {
     const {setUserInfo,userInfo}=useStore()
-    const page = useMemo(() => Taro.getCurrentInstance().page, [])
     const [codeOpenId,setCodeOpenId]=useState<string>('')
     const [userData,setUserData]=useState<any>({})
-    useDidShow(() => {
-        const tabbar = Taro.getTabBar<CustomTabBar>(page)
-        tabbar?.setSelected(3)
-    })
 
     const bindPhoneNumber= async (e:any)=>{
         const res = await wxLogin({codeOpenId,codePhone:e.detail.code,...userData})
@@ -52,9 +45,25 @@ const User= ()=> {
             }
         })
     }
+    const toOrder=useCallback(()=>{
+        Taro.navigateTo({url:'/pages/orderList/index'})
+    },[])
+
+
+    const toCreateMerchant=useCallback(()=>{
+        Taro.navigateTo({url:'/pages/user/subPage/merchantCreate/index'})
+    },[])
+
+    const toMerchantManage=useCallback(()=>{
+        Taro.navigateTo({url:'/pages/user/subPage/merchantManage/index'})
+    },[])
+
 
     return (
-        <View className="profile-page-container" >
+        <View className="profile-page-container" style={{paddingTop:statusBarHeight+14}}>
+            <View className={'header'}>
+                个人中心
+            </View>
             {userInfo?<div className="profile-login-button" >
                 <img alt="" src={empty} className="profile-login-button-img"/>
                 <span style={{marginLeft:10}}>{userInfo.name}</span>
@@ -63,14 +72,7 @@ const User= ()=> {
                 <Button style={{border:0,padding:8,fontFamily:"Gill Sans"}} openType={'getPhoneNumber'} onGetPhoneNumber={bindPhoneNumber}>点击登录</Button>
             </div>}
             <View className="profile-box" >
-                <div className="profile-item-container" >
-                    <div className="profile-item-text">
-                        <img alt="" src={message} className="profile-item-icon"/>
-                        消息
-                    </div>
-                    <img alt="" src={right} className="profile-item-right-icon"/>
-                </div>
-                <div className="profile-item-container" >
+                <div className="profile-item-container" onClick={toOrder}>
                     <div className="profile-item-text">
                         <img alt="" src={order} className="profile-item-icon"/>
                         订单
@@ -84,23 +86,22 @@ const User= ()=> {
                     </div>
                     <img alt="" src={right} className="profile-item-right-icon"/>
                 </div>
-                <div className="profile-item-container" >
+                <div className="profile-item-container" onClick={toMerchantManage}>
                     <div className="profile-item-text">
                         <img alt="" src={crown} className="profile-item-icon"/>
-                        成就
+                        商店管理
                     </div>
                     <img alt="" src={right} className="profile-item-right-icon"/>
                 </div>
-            </View>
-            <View className="profile-box" >
-                <div className="profile-item-container" >
+                <div className="profile-item-container" onClick={toCreateMerchant}>
                     <div className="profile-item-text">
                         <img alt="" src={discover} className="profile-item-icon"/>
-                        关于我们
+                        商家入驻
                     </div>
                     <img alt="" src={right} className="profile-item-right-icon"/>
                 </div>
             </View>
+            <Tabbar/>
         </View>
     )
 }

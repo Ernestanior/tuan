@@ -1,58 +1,60 @@
-.food-list-container{
-  .food-list{
-    background-color: #eee;
-    padding: 10px;
-    flex:1;
-    .btn{
-      padding:3px 5px;
-      font-size: 12px;
-      border-radius: 3px;
-      border: 1px solid #c20000;
-      color:#c20000;
+.food-container{
+  padding:10px;
+  background-color: #eee;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .food-box{
+    background-color: #fff;
+    padding:10px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-weight: 600;
+    margin-bottom: 10px;
+    .food-title{
+      font-size: 16px;
     }
-    .food-box{
+    .food-price{
+      font-size: 14px;
+      color: #c41e1e;
+    }
+    .food-image{
+      width: 100%;
+    }
+    .food-amount{
+      font-weight: 500;
+      font-size: 16px;
+    }
+    .calculator{
+      padding: 0 10px;
+      width: 90px;
+      border: 1px solid #ddd;
       display: flex;
-      margin-bottom: 20px;
-      background-color: #fff;
-      padding: 12px;
-      border-radius: 10px;
-      .food-box-image{
-        width: 80px;
-        height: 80px;
-        border-radius: 6px;
-        margin-right: 10px;
-      }
-      .food-box-content{
-        flex:1;
-        display: flex;
-        flex-direction: column;
-        color:#999;
-        .title{
-          font-size: 16px;
-          font-weight: 600;
-          margin-bottom: 5px;
-          color:#000;
-        }
-        .sale{
-          font-size: 12px;
-          margin-bottom: 5px;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
 
-        }
-        .price{
-          font-size: 12px;
-          display: flex;
-          color: #000;
-          .team-price{
-            color: #e84100;
-            font-weight: 600;
-          }
-          .normal-price{
-            color: #999;
-            text-decoration: line-through;
-          }
-        }
-
-      }
     }
   }
+  .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .food-btn{
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    padding:10px;
+    color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: -webkit-linear-gradient(#c70000, #be5959);
+    box-shadow: 0 0 10px rgba(148, 148, 148, 0.2);
+
+  }
+
 }

@@ -13,6 +13,8 @@ export interface StoreState {
   modalContent:any;
   token:string;
   userInfo:any;
+  loading:boolean;
+  tab:string;
 
 }
 
@@ -22,6 +24,8 @@ export interface StoreActions {
   setToken:any;
   setUserInfo:any;
 
+  setTab:any;
+  setLoading:any;
 
 }
 

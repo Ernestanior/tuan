@@ -5,7 +5,7 @@ import {Toast} from "@nutui/nutui-react-taro";
 // export const image_url = 'http://43.134.172.92'
 // export const init_url = 'http://43.134.172.92'
 // export const init_url = 'https://api.friendasg.com/'
-export const init_url = 'http://10.10.20.4:10000'
+export const init_url = 'http://www.fyaotech.com:10000'
 
 const request = (option: any,pass=false) => {
   return new Promise(async (resolve, reject) => {
@@ -39,7 +39,7 @@ const request = (option: any,pass=false) => {
     );
     instance(option)
       .then(async(res: any) => {
-          // console.log('response',res)
+          console.log('response',res)
         if (res && res.status === 200) {
         //     useStore.getState().setLoading(false)
         //     //当需要使用error, code, msg时，打开pass直接获取整个数据

@@ -8,6 +8,8 @@ const initState: StoreState = {
     modalContent:'',
     token:'',
     userInfo:'',
+    tab:'index',
+    loading:false,
 
 };
 
@@ -19,6 +21,10 @@ const useStore = create<StoreState & StoreActions>()(
           setModalContent:(modalContent:any)=>set(()=>({modalContent})),
           setToken:(token:any)=>set(()=>({token})),
           setUserInfo:(userInfo:any)=>set(()=>({userInfo})),
+          setTab:(tab:any)=>set(()=>({tab})),
+          // 全局控制加载中状态
+          setLoading:(loading:any)=>set(()=>({loading})),
+
       })),
       {
         name: 'global-store',

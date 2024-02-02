@@ -1,4 +1,5 @@
 export default definePageConfig({
-  navigationBarTitleText: '首页',
+  navigationStyle:"custom",
+  navigationBarTitleText: '个人中心',
   usingComponents:{}
 })

@@ -1,46 +1,54 @@
-import {useEffect, useState} from 'react'
-import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import image from '@/assets/aaa.jpeg'
-import type CustomTabBar from '../../custom-tab-bar'
-import {goodList} from "../../store/network";
+import {useCallback, useEffect, useState} from 'react'
+import { View,Image } from '@tarojs/components'
 import './index.less'
+import image from '@/assets/aaa.jpeg'
+import {getCurrentInstance} from "@tarojs/runtime";
+import {goodDetail} from "../../store/network";
+import Taro from "@tarojs/taro";
 const Index=()=> {
-
+    const [times,setTimes]=useState<number>(1)
     const [data,setData]=useState<any[]>([])
-    const pageCtx = Taro.getCurrentInstance().page
-
     useEffect(()=>{
-        const tabbar = Taro.getTabBar<CustomTabBar>(pageCtx)
-        tabbar?.setSelected(1)
+        const params:any= getCurrentInstance().router?.params
+        const id:number = params.id
+        console.log(id)
+        goodDetail(id).then((res)=>setData(res))
+
     },[])
 
-    useEffect(()=>{
-        goodList({searchPage:{page:1,pageSize:10,sort:'',desc:0}}).then((res:any)=>{
-            console.log('good',res)
-            setData(res.content)
-        })
+    const toPay=useCallback(()=>{
+        Taro.redirectTo({url:'/pages/orderList/index'})
     },[])
 
-
+    console.log(data)
         return (
-            <View className='food-list-container'>
-                <View className='food-list'>
-                    {data.map((item:any,index:number)=><View className='food-box' key={index}>
-                        <img alt="" src={image} className={'food-box-image'}/>
-                        <View className='food-box-content'>
-                            <div className='title'>{item.name}</div>
-                            <div className='sale'>月售 600+</div>
-                            <div className='price'>
-                                <span className='team-price'>团购价 ￥19.99</span>
-                                /
-                                <span className='normal-price'>￥25.99</span></div>
-                            <View style={{display:"flex",justifyContent:"flex-end"}}>
-                                <div className='btn'>一键拼团</div>
+            <View className='food-container'>
+                <View>
+                    <View className='food-box'>
+                        <View className='row'>
+                            <span className={'food-title'}>猪脚饭</span>
+                            <span className={'food-price'}>￥19.9</span>
+                        </View>
+                        {/*<View style={{width:150,height:200,backgroundColor:"pink"}}>*/}
+                        <Image mode={'aspectFit'} src={image} className={'food-image'}/>
+                        {/*</View>*/}
+                    </View>
+                    <View className='food-box' style={{display:"flex",justifyContent:"space-between"}}>
+                        <span className={'food-amount'}>数量</span>
+                        <View className={'calculator'}>
+                            <View onTap={()=>setTimes(times>1 ?times-1:times)} >
+                                <span style={{fontSize:16}}>-</span>
+                            </View>
+                            <span style={{fontSize:14,color:"#84b1d0"}}>{times}</span>
+                            <View onTap={()=>setTimes(times+1)} >
+                                <span style={{fontSize:16}}>+</span>
                             </View>
                         </View>
-                    </View>)}
+                    </View>
                 </View>
+
+                <View className={'food-btn'} onClick={toPay}>立即拼饭</View>
+
             </View>
         )
 }
